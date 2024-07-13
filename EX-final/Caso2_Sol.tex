@@ -1,0 +1,645 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Caso\_2},
+  pdfauthor={Tomas Edu Tantalean Sarmiento},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Caso\_2}
+\author{Tomas Edu Tantalean Sarmiento}
+\date{2024-07-13}
+
+\begin{document}
+\maketitle
+
+\hypertarget{base-de-dato}{%
+\section{BASE DE DATO}\label{base-de-dato}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{envios }\OtherTok{\textless{}{-}} \FunctionTok{import}\NormalTok{(}\StringTok{"base\_envíos.csv"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"base\_envíos"}\NormalTok{)}
+\NormalTok{envios}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     id_envío   origen  destino fecha_envío fecha_entrega monto_envío
+## 1         45 Arequipa Trujillo  2022-10-11         19689       62.21
+## 2         12     Lima Trujillo  2022-01-21         19182      847.67
+## 3         42    Piura Trujillo  2022-12-19         19516      797.43
+## 4         26    Piura Trujillo  2023-02-07         19051      360.84
+## 5         99     Lima    Piura  2022-03-10         19210      680.95
+## 6         37    Cusco Arequipa  2022-08-04         19393      145.89
+## 7        100 Trujillo Trujillo  2023-12-17         19038      456.54
+## 8         43    Cusco Trujillo  2022-07-02         19061      194.23
+## 9         67    Cusco    Cusco  2022-03-29         19523      431.59
+## 10       -70 Arequipa     Lima  2022-04-23         19041      645.28
+## 11        52 Arequipa     <NA>  2023-07-29         19701       50.82
+## 12        47 Trujillo Arequipa  2023-11-25         19686      514.64
+## 13        48    Cusco     <NA>  2022-03-26         19661      311.18
+## 14         6    Piura Trujillo  2023-11-20         19302      757.16
+## 15        29     <NA>    Piura  2023-05-05         19044          NA
+## 16        21    Piura Arequipa  2022-07-02         19609      376.15
+## 17        12 Trujillo    Cusco  2023-06-25         19373      673.88
+## 18        66    Cusco Trujillo  2022-05-29         19260      390.10
+## 19        54    Piura    Piura  2022-01-21         19247      487.11
+## 20       -39 Arequipa    Piura  31-12-2023         19593      251.41
+## 21        24     <NA>    Piura  2023-09-12         19508      203.06
+## 22        88    Piura    Piura  2023-05-30         19711      790.71
+## 23        30    Piura Arequipa  2023-08-30         19333      630.38
+## 24        61 Arequipa     <NA>  2023-03-05         19574      909.37
+## 25        59     <NA>     <NA>  2022-10-09            NA      548.43
+## 26        90     <NA> Arequipa  2023-10-10         19153      556.67
+## 27        53 Trujillo Arequipa  2023-09-04         19280      176.79
+## 28        72 Arequipa     <NA>  2022-03-16         19157      129.95
+## 29        32     <NA>    Piura  2023-07-04         19180      344.51
+## 30       -59 Trujillo     Lima  2022-08-13         19497          NA
+## 31        15     <NA> Arequipa  2023-04-05         19332      279.55
+## 32        42    Piura Arequipa  2023-09-04         19064      618.67
+## 33        59    Cusco    Cusco  2023-10-17         19494      309.73
+## 34        92    Piura Trujillo  2022-11-16         19082      475.99
+## 35        16 Trujillo    Cusco  2022-10-21         19519      824.56
+## 36        76 Arequipa Arequipa  2022-12-17         19322      583.06
+## 37        97 Trujillo    Piura  2022-03-19         19214      128.69
+## 38        87    Piura    Cusco  2023-09-09         19264       62.31
+## 39        50    Cusco     <NA>  2023-11-16         19105      374.27
+## 40       -74     <NA>     Lima  31-12-2023         19615      720.15
+## 41        17 Trujillo Arequipa  2022-06-20         19058      257.28
+## 42        94 Trujillo    Cusco  2022-02-13         19306      325.01
+## 43        32     <NA>    Piura  2022-10-23         19382      636.94
+## 44        12     <NA>    Piura  2022-08-05         19328      157.24
+## 45         4 Arequipa Arequipa  2022-10-06         19697          NA
+## 46         5    Piura    Cusco  2023-04-03         19583      999.04
+## 47        88     <NA>     Lima  2023-12-22         19241      374.33
+## 48        82 Trujillo     <NA>  2023-11-26         19085      787.26
+## 49        84    Cusco Arequipa  2022-11-17         19182      726.88
+## 50       -22 Arequipa    Cusco  2022-05-22            NA      775.83
+## 51        19    Cusco Arequipa  2022-10-19         19428      207.28
+## 52        90 Arequipa     <NA>  2022-07-23         19211      713.59
+## 53        59    Cusco    Cusco  2023-04-16         19180      227.28
+## 54        26    Cusco     Lima  2022-06-02         19601      680.49
+## 55        48    Cusco    Piura  2023-09-10         19111      628.27
+## 56        25     <NA> Arequipa  2022-06-26         19139      196.19
+## 57        32     <NA> Arequipa  2023-04-01         19115      635.81
+## 58         2     Lima     Lima  2022-01-23         19460      293.57
+## 59        54    Cusco Arequipa  2022-01-24         19065      255.52
+## 60       -70 Arequipa     Lima  31-12-2023         19294          NA
+## 61        31 Trujillo     <NA>  2022-09-24         19707      922.07
+## 62        24     <NA>    Piura  2023-07-20         19685      245.54
+## 63        13 Arequipa    Piura  2023-12-07         19031      386.27
+## 64        94 Arequipa     Lima  2022-02-22         19019      344.57
+## 65         5    Piura Arequipa  2023-03-21         19451      941.17
+## 66        66 Trujillo     Lima  2022-10-04         19208      778.78
+## 67         5 Arequipa     <NA>  2022-12-15         19297      680.90
+## 68        80     <NA>     <NA>  2023-09-14         19683      816.93
+## 69        37    Cusco Trujillo  2023-12-22         19347      876.22
+## 70        -1     <NA> Trujillo  2022-04-16         19194      392.12
+## 71        41     Lima    Piura  2023-02-15         19659      338.37
+## 72        23     Lima    Cusco  2023-07-08         19401      878.05
+## 73         1 Arequipa    Cusco  2022-10-06         19228      827.36
+## 74         2    Piura    Cusco  2022-02-18         19271      566.16
+## 75        67    Cusco    Piura  2023-04-25            NA          NA
+## 76        46 Arequipa Trujillo  2022-12-19         19322      427.05
+## 77        68    Piura    Piura  2022-10-24         19717      562.15
+## 78        34 Arequipa Arequipa  2023-05-09         19557       98.74
+## 79        54     Lima Trujillo  2022-05-05         19586      242.23
+## 80       -34 Trujillo     <NA>  31-12-2023         19211      336.53
+## 81       100    Cusco Trujillo  2023-12-08         19056      206.05
+## 82        99    Cusco     Lima  2023-06-21         19129      650.80
+## 83        83 Trujillo     Lima  2023-04-19         19033      535.40
+## 84        88     <NA> Trujillo  2022-12-06         19547       94.18
+## 85        17     <NA>     Lima  2022-01-07         19649      694.06
+## 86        52    Cusco     Lima  2023-03-04         19333      795.77
+## 87        28    Piura     <NA>  2023-03-10         19292      633.14
+## 88        20    Piura Trujillo  2023-02-11         19563      316.18
+## 89        11    Cusco Trujillo  2023-05-06         19123      680.86
+## 90       -70     <NA>    Cusco  2022-12-21         19354          NA
+## 91        80     <NA> Arequipa  2023-10-12         19265      881.71
+## 92        41    Cusco Arequipa  2022-03-15         19378      322.54
+## 93        70     <NA>    Piura  2023-02-19         19570      318.77
+## 94        15     <NA>    Cusco  2022-05-01         19392      155.56
+## 95        34 Arequipa     <NA>  2023-02-25         19310      669.68
+## 96        88 Arequipa     Lima  2023-09-12         19132      570.70
+## 97        38 Trujillo Trujillo  2022-09-05         19138      565.97
+## 98        77 Arequipa     Lima  2023-05-30         19125      947.52
+## 99         9 Trujillo Arequipa  2022-11-27         19030      563.68
+## 100      -23 Arequipa     <NA>  31-12-2023            NA      519.09
+## 101       76    Cusco    Piura  2022-09-25         19438      497.80
+## 102       78 Trujillo     Lima  2023-08-14         19301      229.52
+## 103       40    Piura    Piura  2022-05-24         19515      581.71
+## 104        3    Piura     Lima  2022-03-03         19001      438.91
+## 105       75     Lima     <NA>  2022-10-02         19228          NA
+## 106       37 Arequipa Arequipa  2022-01-19         19538      580.38
+## 107       90     Lima Arequipa  2022-04-26         19354      893.43
+## 108      100    Piura Arequipa  2022-06-12         19362      663.31
+## 109       56 Trujillo    Cusco  2022-11-05         19135      836.74
+## 110     -100     <NA>     Lima  2022-05-09         19217      480.63
+## 111       14 Trujillo    Piura  2022-04-23         19374      246.96
+## 112       48     <NA>     <NA>  2023-09-16         19552      454.95
+## 113       28 Trujillo     Lima  2023-09-19         19542      783.72
+## 114       35 Arequipa    Piura  2022-09-09         19616      817.44
+## 115       76     <NA>    Piura  2023-01-17         19368      720.54
+## 116       81    Cusco    Piura  2023-06-20         19682      857.03
+## 117       17     <NA>    Cusco  2022-02-15         19423      850.24
+## 118       41    Piura    Cusco  2023-05-10         19230      949.73
+## 119       89     Lima     <NA>  2023-09-16         19267      757.34
+## 120      -81 Trujillo Trujillo  31-12-2023         19642          NA
+## 121       15 Arequipa    Piura  2023-02-25         19049      973.08
+## 122       19     <NA> Trujillo  2022-05-17         19161      550.08
+## 123       70 Trujillo     Lima  2022-09-09         19610      210.57
+## 124       10 Trujillo     <NA>  2023-11-08         19577      747.64
+## 125       67 Trujillo     <NA>  2023-10-06            NA      374.55
+## 126       27 Arequipa    Cusco  2022-11-05         19450      776.79
+## 127       62 Trujillo    Piura  2022-01-01         19122      959.49
+## 128      100     Lima Arequipa  2023-08-27         19537      562.67
+## 129       23    Cusco    Cusco  2022-01-20         19031      355.16
+## 130      -90 Arequipa     Lima  2022-03-31         19166      251.19
+## 131       71    Piura Trujillo  2023-01-14         19120      957.91
+## 132       67     <NA>    Cusco  2023-10-28         19705      470.96
+## 133       53 Arequipa Arequipa  2023-11-13         19661      492.79
+## 134       87    Cusco     Lima  2023-03-06         19177      617.94
+## 135       28     Lima     <NA>  2023-11-02         19300          NA
+## 136       89 Arequipa     <NA>  2023-06-09         19115      847.94
+## 137       21 Arequipa Trujillo  2023-01-20         19004      254.84
+## 138       24 Arequipa    Piura  2022-12-25         19531      855.20
+## 139       83    Piura Trujillo  2023-04-16         19364      582.38
+## 140      -50     <NA>     Lima  31-12-2023         19280      627.74
+## 141       63    Piura     Lima  2023-10-13         19141      612.15
+## 142       45    Piura     Lima  2023-01-12         19136      780.27
+## 143       88    Piura     Lima  2022-09-26         19620      448.09
+## 144       14 Arequipa    Cusco  2022-03-23         19709      587.06
+## 145       24     <NA>     Lima  2022-08-22         19659      958.86
+## 146       52    Piura     Lima  2023-12-31         19524      730.84
+## 147       55     <NA>    Piura  2022-02-17         18998      129.16
+## 148       17     Lima    Cusco  2023-01-28         19300       50.22
+## 149       33     <NA>     <NA>  2023-12-24         19132      362.29
+## 150      -74     <NA>     Lima  2022-10-12            NA          NA
+\end{verbatim}
+
+\hypertarget{base-de-datos-limpio}{%
+\subsection{BASE DE DATOS LIMPIO}\label{base-de-datos-limpio}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Envios\_corregido }\OtherTok{\textless{}{-}}\NormalTok{ envios }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+\NormalTok{    id\_envío }\OtherTok{=} \FunctionTok{ifelse}\NormalTok{(id\_envío }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{, id\_envío }\SpecialCharTok{*}\NormalTok{ (}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), id\_envío),}
+    \AttributeTok{origen =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(origen), }\StringTok{"No registrado"}\NormalTok{, origen),}
+    \AttributeTok{destino =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(destino), }\StringTok{"No reportado"}\NormalTok{, destino),}
+\NormalTok{    fecha\_envío }\OtherTok{=} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"\^{}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{2\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{2\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{4\}$"}\NormalTok{, fecha\_envío),}
+                         \FunctionTok{as.character}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(fecha\_envío, }\AttributeTok{format =} \StringTok{"\%d{-}\%m{-}\%Y"}\NormalTok{)),}
+\NormalTok{                         fecha\_envío),}
+\NormalTok{    fecha\_envío }\OtherTok{=} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"\^{}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{4\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{2\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{2\}$"}\NormalTok{, fecha\_envío),}
+                         \FunctionTok{as.character}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(fecha\_envío, }\AttributeTok{format =} \StringTok{"\%Y{-}\%m{-}\%d"}\NormalTok{)),}
+\NormalTok{                         fecha\_envío),}
+    \AttributeTok{fecha\_entrega =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(fecha\_entrega), }\StringTok{"No registrado"}\NormalTok{, }\FunctionTok{as.character}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(fecha\_entrega))),}
+\NormalTok{    fecha\_envío }\OtherTok{=} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(fecha\_envío), }\StringTok{"No registrado"}\NormalTok{, }\FunctionTok{as.character}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(fecha\_envío))),}
+\NormalTok{    monto\_envío }\OtherTok{=} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(monto\_envío), }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, monto\_envío),}
+    \AttributeTok{temp\_fecha\_envio =} \FunctionTok{ifelse}\NormalTok{(fecha\_envío }\SpecialCharTok{!=} \StringTok{"No registrado"} \SpecialCharTok{\&}\NormalTok{ fecha\_entrega }\SpecialCharTok{!=} \StringTok{"No registrado"} \SpecialCharTok{\&} \FunctionTok{as.Date}\NormalTok{(fecha\_envío) }\SpecialCharTok{\textgreater{}} \FunctionTok{as.Date}\NormalTok{(fecha\_entrega), fecha\_entrega, fecha\_envío),}
+    \AttributeTok{temp\_fecha\_entrega =} \FunctionTok{ifelse}\NormalTok{(fecha\_envío }\SpecialCharTok{!=} \StringTok{"No registrado"} \SpecialCharTok{\&}\NormalTok{ fecha\_entrega }\SpecialCharTok{!=} \StringTok{"No registrado"} \SpecialCharTok{\&} \FunctionTok{as.Date}\NormalTok{(fecha\_envío) }\SpecialCharTok{\textgreater{}} \FunctionTok{as.Date}\NormalTok{(fecha\_entrega), fecha\_envío, fecha\_entrega)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{fecha\_envío, }\SpecialCharTok{{-}}\NormalTok{fecha\_entrega) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(fecha\_envío }\OtherTok{=}\NormalTok{ temp\_fecha\_envio, }\AttributeTok{fecha\_entrega =}\NormalTok{ temp\_fecha\_entrega) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{duracion\_envio =} \FunctionTok{ifelse}\NormalTok{(fecha\_envío }\SpecialCharTok{!=} \StringTok{"No registrado"} \SpecialCharTok{\&}\NormalTok{ fecha\_entrega }\SpecialCharTok{!=} \StringTok{"No registrado"}\NormalTok{,}
+                            \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(fecha\_entrega) }\SpecialCharTok{{-}} \FunctionTok{as.Date}\NormalTok{(fecha\_envío)),}
+                            \ConstantTok{NA}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{Envios\_corregido}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     id_envío        origen      destino monto_envío fecha_envío fecha_entrega
+## 1         45      Arequipa     Trujillo       62.21  2022-10-11    2023-11-28
+## 2         12          Lima     Trujillo      847.67  2022-01-21    2022-07-09
+## 3         42         Piura     Trujillo      797.43  2022-12-19    2023-06-08
+## 4         26         Piura     Trujillo      360.84  2022-02-28    2023-02-07
+## 5         99          Lima        Piura      680.95  2022-03-10    2022-08-06
+## 6         37         Cusco     Arequipa      145.89  2022-08-04    2023-02-05
+## 7        100      Trujillo     Trujillo      456.54  2022-02-15    2023-12-17
+## 8         43         Cusco     Trujillo      194.23  2022-03-10    2022-07-02
+## 9         67         Cusco        Cusco      431.59  2022-03-29    2023-06-15
+## 10        70      Arequipa         Lima      645.28  2022-02-18    2022-04-23
+## 11        52      Arequipa No reportado       50.82  2023-07-29    2023-12-10
+## 12        47      Trujillo     Arequipa      514.64  2023-11-25    2023-11-25
+## 13        48         Cusco No reportado      311.18  2022-03-26    2023-10-31
+## 14         6         Piura     Trujillo      757.16  2022-11-06    2023-11-20
+## 15        29 No registrado        Piura       -1.00  2022-02-21    2023-05-05
+## 16        21         Piura     Arequipa      376.15  2022-07-02    2023-09-09
+## 17        12      Trujillo        Cusco      673.88  2023-01-16    2023-06-25
+## 18        66         Cusco     Trujillo      390.10  2022-05-29    2022-09-25
+## 19        54         Piura        Piura      487.11  2022-01-21    2022-09-12
+## 20        39      Arequipa        Piura      251.41  2023-08-24    2023-12-31
+## 21        24 No registrado        Piura      203.06  2023-05-31    2023-09-12
+## 22        88         Piura        Piura      790.71  2023-05-30    2023-12-20
+## 23        30         Piura     Arequipa      630.38  2022-12-07    2023-08-30
+## 24        61      Arequipa No reportado      909.37  2023-03-05    2023-08-05
+## 25        59 No registrado No reportado      548.43  2022-10-09 No registrado
+## 26        90 No registrado     Arequipa      556.67  2022-06-10    2023-10-10
+## 27        53      Trujillo     Arequipa      176.79  2022-10-15    2023-09-04
+## 28        72      Arequipa No reportado      129.95  2022-03-16    2022-06-14
+## 29        32 No registrado        Piura      344.51  2022-07-07    2023-07-04
+## 30        59      Trujillo         Lima       -1.00  2022-08-13    2023-05-20
+## 31        15 No registrado     Arequipa      279.55  2022-12-06    2023-04-05
+## 32        42         Piura     Arequipa      618.67  2022-03-13    2023-09-04
+## 33        59         Cusco        Cusco      309.73  2023-05-17    2023-10-17
+## 34        92         Piura     Trujillo      475.99  2022-03-31    2022-11-16
+## 35        16      Trujillo        Cusco      824.56  2022-10-21    2023-06-11
+## 36        76      Arequipa     Arequipa      583.06  2022-11-26    2022-12-17
+## 37        97      Trujillo        Piura      128.69  2022-03-19    2022-08-10
+## 38        87         Piura        Cusco       62.31  2022-09-29    2023-09-09
+## 39        50         Cusco No reportado      374.27  2022-04-23    2023-11-16
+## 40        74 No registrado         Lima      720.15  2023-09-15    2023-12-31
+## 41        17      Trujillo     Arequipa      257.28  2022-03-07    2022-06-20
+## 42        94      Trujillo        Cusco      325.01  2022-02-13    2022-11-10
+## 43        32 No registrado        Piura      636.94  2022-10-23    2023-01-25
+## 44        12 No registrado        Piura      157.24  2022-08-05    2022-12-02
+## 45         4      Arequipa     Arequipa       -1.00  2022-10-06    2023-12-06
+## 46         5         Piura        Cusco      999.04  2023-04-03    2023-08-14
+## 47        88 No registrado         Lima      374.33  2022-09-06    2023-12-22
+## 48        82      Trujillo No reportado      787.26  2022-04-03    2023-11-26
+## 49        84         Cusco     Arequipa      726.88  2022-07-09    2022-11-17
+## 50        22      Arequipa        Cusco      775.83  2022-05-22 No registrado
+## 51        19         Cusco     Arequipa      207.28  2022-10-19    2023-03-12
+## 52        90      Arequipa No reportado      713.59  2022-07-23    2022-08-07
+## 53        59         Cusco        Cusco      227.28  2022-07-07    2023-04-16
+## 54        26         Cusco         Lima      680.49  2022-06-02    2023-09-01
+## 55        48         Cusco        Piura      628.27  2022-04-29    2023-09-10
+## 56        25 No registrado     Arequipa      196.19  2022-05-27    2022-06-26
+## 57        32 No registrado     Arequipa      635.81  2022-05-03    2023-04-01
+## 58         2          Lima         Lima      293.57  2022-01-23    2023-04-13
+## 59        54         Cusco     Arequipa      255.52  2022-01-24    2022-03-14
+## 60        70      Arequipa         Lima       -1.00  2022-10-29    2023-12-31
+## 61        31      Trujillo No reportado      922.07  2022-09-24    2023-12-16
+## 62        24 No registrado        Piura      245.54  2023-07-20    2023-11-24
+## 63        13      Arequipa        Piura      386.27  2022-02-08    2023-12-07
+## 64        94      Arequipa         Lima      344.57  2022-01-27    2022-02-22
+## 65         5         Piura     Arequipa      941.17  2023-03-21    2023-04-04
+## 66        66      Trujillo         Lima      778.78  2022-08-04    2022-10-04
+## 67         5      Arequipa No reportado      680.90  2022-11-01    2022-12-15
+## 68        80 No registrado No reportado      816.93  2023-09-14    2023-11-22
+## 69        37         Cusco     Trujillo      876.22  2022-12-21    2023-12-22
+## 70         1 No registrado     Trujillo      392.12  2022-04-16    2022-07-21
+## 71        41          Lima        Piura      338.37  2023-02-15    2023-10-29
+## 72        23          Lima        Cusco      878.05  2023-02-13    2023-07-08
+## 73         1      Arequipa        Cusco      827.36  2022-08-24    2022-10-06
+## 74         2         Piura        Cusco      566.16  2022-02-18    2022-10-06
+## 75        67         Cusco        Piura       -1.00  2023-04-25 No registrado
+## 76        46      Arequipa     Trujillo      427.05  2022-11-26    2022-12-19
+## 77        68         Piura        Piura      562.15  2022-10-24    2023-12-26
+## 78        34      Arequipa     Arequipa       98.74  2023-05-09    2023-07-19
+## 79        54          Lima     Trujillo      242.23  2022-05-05    2023-08-17
+## 80        34      Trujillo No reportado      336.53  2022-08-07    2023-12-31
+## 81       100         Cusco     Trujillo      206.05  2022-03-05    2023-12-08
+## 82        99         Cusco         Lima      650.80  2022-05-17    2023-06-21
+## 83        83      Trujillo         Lima      535.40  2022-02-10    2023-04-19
+## 84        88 No registrado     Trujillo       94.18  2022-12-06    2023-07-09
+## 85        17 No registrado         Lima      694.06  2022-01-07    2023-10-19
+## 86        52         Cusco         Lima      795.77  2022-12-07    2023-03-04
+## 87        28         Piura No reportado      633.14  2022-10-27    2023-03-10
+## 88        20         Piura     Trujillo      316.18  2023-02-11    2023-07-25
+## 89        11         Cusco     Trujillo      680.86  2022-05-11    2023-05-06
+## 90        70 No registrado        Cusco       -1.00  2022-12-21    2022-12-28
+## 91        80 No registrado     Arequipa      881.71  2022-09-30    2023-10-12
+## 92        41         Cusco     Arequipa      322.54  2022-03-15    2023-01-21
+## 93        70 No registrado        Piura      318.77  2023-02-19    2023-08-01
+## 94        15 No registrado        Cusco      155.56  2022-05-01    2023-02-04
+## 95        34      Arequipa No reportado      669.68  2022-11-14    2023-02-25
+## 96        88      Arequipa         Lima      570.70  2022-05-20    2023-09-12
+## 97        38      Trujillo     Trujillo      565.97  2022-05-26    2022-09-05
+## 98        77      Arequipa         Lima      947.52  2022-05-13    2023-05-30
+## 99         9      Trujillo     Arequipa      563.68  2022-02-07    2022-11-27
+## 100       23      Arequipa No reportado      519.09  2023-12-31 No registrado
+## 101       76         Cusco        Piura      497.80  2022-09-25    2023-03-22
+## 102       78      Trujillo         Lima      229.52  2022-11-05    2023-08-14
+## 103       40         Piura        Piura      581.71  2022-05-24    2023-06-07
+## 104        3         Piura         Lima      438.91  2022-01-09    2022-03-03
+## 105       75          Lima No reportado       -1.00  2022-08-24    2022-10-02
+## 106       37      Arequipa     Arequipa      580.38  2022-01-19    2023-06-30
+## 107       90          Lima     Arequipa      893.43  2022-04-26    2022-12-28
+## 108      100         Piura     Arequipa      663.31  2022-06-12    2023-01-05
+## 109       56      Trujillo        Cusco      836.74  2022-05-23    2022-11-05
+## 110      100 No registrado         Lima      480.63  2022-05-09    2022-08-13
+## 111       14      Trujillo        Piura      246.96  2022-04-23    2023-01-17
+## 112       48 No registrado No reportado      454.95  2023-07-14    2023-09-16
+## 113       28      Trujillo         Lima      783.72  2023-07-04    2023-09-19
+## 114       35      Arequipa        Piura      817.44  2022-09-09    2023-09-16
+## 115       76 No registrado        Piura      720.54  2023-01-11    2023-01-17
+## 116       81         Cusco        Piura      857.03  2023-06-20    2023-11-21
+## 117       17 No registrado        Cusco      850.24  2022-02-15    2023-03-07
+## 118       41         Piura        Cusco      949.73  2022-08-26    2023-05-10
+## 119       89          Lima No reportado      757.34  2022-10-02    2023-09-16
+## 120       81      Trujillo     Trujillo       -1.00  2023-10-12    2023-12-31
+## 121       15      Arequipa        Piura      973.08  2022-02-26    2023-02-25
+## 122       19 No registrado     Trujillo      550.08  2022-05-17    2022-06-18
+## 123       70      Trujillo         Lima      210.57  2022-09-09    2023-09-10
+## 124       10      Trujillo No reportado      747.64  2023-08-08    2023-11-08
+## 125       67      Trujillo No reportado      374.55  2023-10-06 No registrado
+## 126       27      Arequipa        Cusco      776.79  2022-11-05    2023-04-03
+## 127       62      Trujillo        Piura      959.49  2022-01-01    2022-05-10
+## 128      100          Lima     Arequipa      562.67  2023-06-29    2023-08-27
+## 129       23         Cusco        Cusco      355.16  2022-01-20    2022-02-08
+## 130       90      Arequipa         Lima      251.19  2022-03-31    2022-06-23
+## 131       71         Piura     Trujillo      957.91  2022-05-08    2023-01-14
+## 132       67 No registrado        Cusco      470.96  2023-10-28    2023-12-14
+## 133       53      Arequipa     Arequipa      492.79  2023-10-31    2023-11-13
+## 134       87         Cusco         Lima      617.94  2022-07-04    2023-03-06
+## 135       28          Lima No reportado       -1.00  2022-11-04    2023-11-02
+## 136       89      Arequipa No reportado      847.94  2022-05-03    2023-06-09
+## 137       21      Arequipa     Trujillo      254.84  2022-01-12    2023-01-20
+## 138       24      Arequipa        Piura      855.20  2022-12-25    2023-06-23
+## 139       83         Piura     Trujillo      582.38  2023-01-07    2023-04-16
+## 140       50 No registrado         Lima      627.74  2022-10-15    2023-12-31
+## 141       63         Piura         Lima      612.15  2022-05-29    2023-10-13
+## 142       45         Piura         Lima      780.27  2022-05-24    2023-01-12
+## 143       88         Piura         Lima      448.09  2022-09-26    2023-09-20
+## 144       14      Arequipa        Cusco      587.06  2022-03-23    2023-12-18
+## 145       24 No registrado         Lima      958.86  2022-08-22    2023-10-29
+## 146       52         Piura         Lima      730.84  2023-06-16    2023-12-31
+## 147       55 No registrado        Piura      129.16  2022-01-06    2022-02-17
+## 148       17          Lima        Cusco       50.22  2022-11-04    2023-01-28
+## 149       33 No registrado No reportado      362.29  2022-05-20    2023-12-24
+## 150       74 No registrado         Lima       -1.00  2022-10-12 No registrado
+##     duracion_envio
+## 1              413
+## 2              169
+## 3              171
+## 4              344
+## 5              149
+## 6              185
+## 7              670
+## 8              114
+## 9              443
+## 10              64
+## 11             134
+## 12               0
+## 13             584
+## 14             379
+## 15             438
+## 16             434
+## 17             160
+## 18             119
+## 19             234
+## 20             129
+## 21             104
+## 22             204
+## 23             266
+## 24             153
+## 25              NA
+## 26             487
+## 27             324
+## 28              90
+## 29             362
+## 30             280
+## 31             120
+## 32             540
+## 33             153
+## 34             230
+## 35             233
+## 36              21
+## 37             144
+## 38             345
+## 39             572
+## 40             107
+## 41             105
+## 42             270
+## 43              94
+## 44             119
+## 45             426
+## 46             133
+## 47             472
+## 48             602
+## 49             131
+## 50              NA
+## 51             144
+## 52              15
+## 53             283
+## 54             456
+## 55             499
+## 56              30
+## 57             333
+## 58             445
+## 59              49
+## 60             428
+## 61             448
+## 62             127
+## 63             667
+## 64              26
+## 65              14
+## 66              61
+## 67              44
+## 68              69
+## 69             366
+## 70              96
+## 71             256
+## 72             145
+## 73              43
+## 74             230
+## 75              NA
+## 76              23
+## 77             428
+## 78              71
+## 79             469
+## 80             511
+## 81             643
+## 82             400
+## 83             433
+## 84             215
+## 85             650
+## 86              87
+## 87             134
+## 88             164
+## 89             360
+## 90               7
+## 91             377
+## 92             312
+## 93             163
+## 94             279
+## 95             103
+## 96             480
+## 97             102
+## 98             382
+## 99             293
+## 100             NA
+## 101            178
+## 102            282
+## 103            379
+## 104             53
+## 105             39
+## 106            527
+## 107            246
+## 108            207
+## 109            166
+## 110             96
+## 111            269
+## 112             64
+## 113             77
+## 114            372
+## 115              6
+## 116            154
+## 117            385
+## 118            257
+## 119            349
+## 120             80
+## 121            364
+## 122             32
+## 123            366
+## 124             92
+## 125             NA
+## 126            149
+## 127            129
+## 128             59
+## 129             19
+## 130             84
+## 131            251
+## 132             47
+## 133             13
+## 134            245
+## 135            363
+## 136            402
+## 137            373
+## 138            180
+## 139             99
+## 140            442
+## 141            502
+## 142            233
+## 143            359
+## 144            635
+## 145            433
+## 146            198
+## 147             42
+## 148             85
+## 149            583
+## 150             NA
+\end{verbatim}
+
+\hypertarget{duracion-promedio-de-envio}{%
+\subsubsection{DURACION PROMEDIO DE
+ENVIO}\label{duracion-promedio-de-envio}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{duracion\_prom\_region }\OtherTok{\textless{}{-}}\NormalTok{ Envios\_corregido }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(origen) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{duracion\_promedio =} \FunctionTok{mean}\NormalTok{(duracion\_envio, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+
+\NormalTok{duracion\_prom\_region}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   origen        duracion_promedio
+##   <chr>                     <dbl>
+## 1 Arequipa                   235.
+## 2 Cusco                      282.
+## 3 Lima                       231.
+## 4 No registrado              226.
+## 5 Piura                      261.
+## 6 Trujillo                   254.
+\end{verbatim}
+
+\end{document}
